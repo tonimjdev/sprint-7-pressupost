@@ -4,7 +4,12 @@
       <label for="labelPag" class="col-form-label">Número de pàgines: </label>
     </div>
     <div class="col-auto">
-      <input type="number" class="form-control" id="labelPag" />
+      <input
+        type="number"
+        class="form-control"
+        id="labelPag"
+        (change)="totalWebOpcions(1,2)"
+      />
     </div>
     <div class="row g-2 align-items-center">
       <div class="col-auto">
@@ -13,7 +18,13 @@
         </label>
       </div>
       <div class="col-auto">
-        <input type="number" class="form-control" id="labelIdiomes" />
+        <input
+          #valorIdiomes
+          type="number"
+          class="form-control"
+          id="labelIdiomes"
+          (change)="totalWebOpcions(2,3)"
+        />
       </div>
     </div>
   </div>

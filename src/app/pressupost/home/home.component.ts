@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { variationPlacements } from '@popperjs/core';
 
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html'
@@ -29,4 +31,6 @@ export class HomeComponent {
       this.totalServicios-=this.acumulado;
     }
   }
+
+
 }

@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { PressupostService } from '../services/pressupost.service';
 
 @Component({
   selector: 'app-panell',
   templateUrl: './panell.component.html',
-  styleUrls: ['./panell.component.css']
+  styleUrls: ['./panell.component.css'],
 })
-export class PanellComponent implements OnInit {
+export class PanellComponent {
+  pagines: number = 0;
+  idiomes: number = 0;
 
-  constructor() { }
+  constructor(public pressupostService: PressupostService) {}
 
-  ngOnInit(): void {
+  totalWebOpcions(pagines: number, idiomes: number) {
+    console.log(this.pressupostService.calcOpcionsWeb(pagines, idiomes));
   }
-
 }
