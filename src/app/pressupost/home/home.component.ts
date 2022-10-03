@@ -14,15 +14,16 @@ export class HomeComponent {
 
   totalServicios: number = 0;
   acumulado: number = 0;
+  webActive: boolean = false;
 
   calcularTotal(valor:any):void {
     if (valor.currentTarget.checked) {
-      if (valor.target.defaultValue === "web") this.acumulado = this.web;
+      if (valor.target.defaultValue === "web") {this.acumulado = this.web; this.webActive=true;}
       else if (valor.target.defaultValue === "seo") this.acumulado = this.seo;
       else this.acumulado = this.pub;
       this.totalServicios+=this.acumulado;
     } else {
-      if (valor.target.defaultValue === "web") this.acumulado = this.web;
+      if (valor.target.defaultValue === "web") {this.acumulado = this.web; this.webActive=false;}
       else if (valor.target.defaultValue === "seo") this.acumulado = this.seo;
       else this.acumulado = this.pub;
       this.totalServicios-=this.acumulado;
