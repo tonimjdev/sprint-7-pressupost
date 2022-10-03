@@ -2,14 +2,13 @@
 <h1 class="fs-5">¿Què vols fer?</h1>
 <hr>
 <div class="form-check">
-<input type="checkbox" class="form-check-input"/>
+<input type="checkbox" class="form-check-input" (change)="calcularTotal($event)" value="web"/>
 <label class="form-check-label"> Una pàgina web (500€)</label> <br>
-<input type="checkbox" class="form-check-input"/>
+<input type="checkbox" class="form-check-input" (change)="calcularTotal($event)" value="seo"/>
 <label class="form-check-label"> Una consultoria <em>SEO</em> (300€)</label> <br>
-<input type="checkbox" class="form-check-input"/>
+<input type="checkbox" class="form-check-input" (change)="calcularTotal($event)" value="pub"/>
 <label class="form-check-label"> Una campanya de <em>Google Ads</em> (200€)</label> <br>
 </div>
 <br>
-<p>Preu: </p>
-
+<p class="fw-bold">Preu: {{totalServicios}} €</p>
 </div>
