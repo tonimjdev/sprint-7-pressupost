@@ -1,19 +1,22 @@
 <div class="panellClass">
-  <div class="form-group row g-2 align-items-center">
+  <form class="form-group row g-2" [formGroup]="panellFormulari">
     <div class="col-auto">
       <label for="labelPag" class="col-form-label">Número de pàgines: </label>
     </div>
     <div class="col-auto">
       <input
-        [(ngModel)]="pagines"
         type="number"
         class="form-control"
+        formControlName="pagControl"
         id="labelPag"
-        (change)="totalWebOpcions(pagines, idiomes)"
+        (change)="totalWebOpcions()"
         (change)="onPropagar()"
       />
+      <span class="form-text text-danger" *ngIf="campEsValid('pagControl')">
+        Mínimo 1 página
+      </span>
     </div>
-    <div class="row g-2 align-items-center">
+    <div class="row g-2">
       <div class="col-auto">
         <label for="labelIdiomes" class="col-form-label"
           >Número d'idiomes:
@@ -21,14 +24,20 @@
       </div>
       <div class="col-auto">
         <input
-          [(ngModel)]="idiomes"
           type="number"
           class="form-control"
+          formControlName="idiomaControl"
           id="labelIdiomes"
-          (change)="totalWebOpcions(pagines, idiomes)"
+          (change)="totalWebOpcions()"
           (change)="onPropagar()"
         />
+        <span
+          class="form-text text-danger"
+          *ngIf="campEsValid('idiomaControl')"
+        >
+          Mínimo 1 página
+        </span>
       </div>
     </div>
-  </div>
+  </form>
 </div>
