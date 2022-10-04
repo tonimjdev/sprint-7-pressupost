@@ -5,10 +5,12 @@
     </div>
     <div class="col-auto">
       <input
+        [(ngModel)]="pagines"
         type="number"
         class="form-control"
         id="labelPag"
-        (change)="totalWebOpcions(1,2)"
+        (change)="totalWebOpcions(pagines, idiomes)"
+        (change)="onPropagar()"
       />
     </div>
     <div class="row g-2 align-items-center">
@@ -19,11 +21,12 @@
       </div>
       <div class="col-auto">
         <input
-          #valorIdiomes
+          [(ngModel)]="idiomes"
           type="number"
           class="form-control"
           id="labelIdiomes"
-          (change)="totalWebOpcions(2,3)"
+          (change)="totalWebOpcions(pagines, idiomes)"
+          (change)="onPropagar()"
         />
       </div>
     </div>

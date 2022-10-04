@@ -2,21 +2,19 @@
 <h1 class="fs-5">¿Què vols fer?</h1>
 <hr>
 <div class="form-check">
-<input type="checkbox" class="form-check-input" (change)="calcularTotal($event)" value="web"/>
+<input type="checkbox" class="form-check-input" (change)="checkWeb($event)" value="web"/>
 <label class="form-check-label"> Una pàgina web (500€)</label> <br>
 <ng-template [ngIf] = webActive>
 
-    <app-panell></app-panell>
+    <app-panell (propagar)="onTotalWebServ($event)"></app-panell>
 
 </ng-template>
 
-
-
-<input type="checkbox" class="form-check-input" (change)="calcularTotal($event)" value="seo"/>
+<input type="checkbox" class="form-check-input" (change)="checkSeo($event)" value="seo"/>
 <label class="form-check-label"> Una consultoria <em>SEO</em> (300€)</label> <br>
-<input type="checkbox" class="form-check-input" (change)="calcularTotal($event)" value="pub"/>
+<input type="checkbox" class="form-check-input" (change)="checkAds($event)" value="pub"/>
 <label class="form-check-label"> Una campanya de <em>Google Ads</em> (200€)</label> <br>
 </div>
 <br>
-<p class="fw-bold">Preu: {{totalServicios}} €</p>
+<p class="fw-bold">Preu: {{totalPresu}} €</p>
 </div>
