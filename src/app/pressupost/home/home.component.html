@@ -1,6 +1,13 @@
-<div class="container pt-3">
-  <h1 class="fs-5">¿Què vols fer?</h1>
-  <hr />
+<div class="row p-5">
+  <div class="col">
+    <h1>Pressupost Web</h1>
+    <h2 class="fs-5 fw-light">Toni Machado - Sprint 7 - ANGULAR</h2>
+    <hr>
+  </div>
+
+  <div class="row ps-4 py-1">
+  <h1 class="fs-5 pb-3">¿Què vols fer?</h1>
+
 
   <form class="form-check">
     <input
@@ -37,5 +44,17 @@
   </form>
 
   <br />
-  <p class="fw-bold">Preu: {{ totalPresu }} €</p>
+  <p class="fw-bold pt-4 pb-1 fs-5">Preu: {{ totalPresu }} €</p>
+  <hr>
+  <div class="col">
+  <button class="btn btn-primary px-4 mt-2"
+  routerLink=""
+  routerLinkActive="router-link-active">
+  Inici</button>
 </div>
+</div>
+
+
+
+      </div>
+

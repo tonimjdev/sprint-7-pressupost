@@ -1,9 +1,10 @@
 .panellClass {
-    width: 500px;
-    padding: 1.5em 1em 1em 2em;
+    width: 400px;
+    padding: 1.5em 1em 1.2em 2em;
     margin: 1em;
-    border: 1px solid rgb(116, 116, 116);
+
     border-radius: 20px;
+    background-color: rgb(246, 243, 240);
 }
 .panellClass input {
     width: 45px;
@@ -11,6 +12,10 @@
 }
 .panellClass button {
   background-color: rgb(231, 126, 93);
+}
+
+.panellClass span {
+  padding-left: 5em;
 }
 /* Treiem fletxes input tipus number */
 input[type=number]::-webkit-inner-spin-button, 

@@ -8,15 +8,19 @@ import { HomeComponent } from './pressupost/home/home.component';
 import { PanellComponent } from './pressupost/panell/panell.component';
 
 import { PressupostService } from './pressupost/services/pressupost.service';
+import { BenvingudaComponent } from './pressupost/benvinguda/benvinguda.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PanellComponent
+    PanellComponent,
+    BenvingudaComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
   ],
