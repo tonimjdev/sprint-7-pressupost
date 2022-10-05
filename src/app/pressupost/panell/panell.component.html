@@ -1,41 +1,74 @@
 <div class="panellClass">
-  <form class="form-group row g-2" [formGroup]="panellFormulari">
-    <div class="col-auto">
-      <label for="labelPag" class="col-form-label">Número de pàgines: </label>
-    </div>
-    <div class="col-auto">
-      <input
-        type="number"
-        class="form-control"
-        formControlName="pagControl"
-        id="labelPag"
-        (change)="totalWebOpcions()"
-        (change)="onPropagar()"
-      />
-      <span class="form-text text-danger" *ngIf="campEsValid('pagControl')">
-        Mínimo 1 página
-      </span>
-    </div>
+  <form class="form-group" [formGroup]="panellFormulari">
     <div class="row g-2">
       <div class="col-auto">
-        <label for="labelIdiomes" class="col-form-label"
-          >Número d'idiomes:
-        </label>
+        <label for="labelPag" class="col-form-label">Número de pàgines: </label>
+      </div>
+
+      <div class="col-auto">
+        <button class="btn text-white fw-bold me-2" (click)="sumar('pagines')">
+          +
+        </button>
       </div>
       <div class="col-auto">
         <input
           type="number"
-          class="form-control"
-          formControlName="idiomaControl"
-          id="labelIdiomes"
+          class="form-control me-2"
+          [(ngModel)]="pagines"
+          formControlName="pagControl"
+          id="labelPag"
           (change)="totalWebOpcions()"
           (change)="onPropagar()"
         />
+      </div>
+      <div class="col-auto">
+        <button class="btn text-white fw-bold" (click)="restar('pagines')">
+          -
+        </button>
+      </div>
+      <span
+        class="form-text text-danger text-center"
+        *ngIf="campEsValid('pagControl')"
+      >
+        Mínim 1 pàgina
+      </span>
+
+      <div class="row g-2">
+        <div class="col-auto">
+          <label for="labelIdiomes" class="col-form-label me-2"
+            >Número d'idiomes:
+          </label>
+        </div>
+        <div class="col-auto">
+          <button
+            class="btn text-white fw-bold me-2"
+            (click)="sumar('idiomes')"
+          >
+            +
+          </button>
+        </div>
+        <div class="col-auto">
+          <input
+            value="{{ idiomes }}"
+            type="number"
+            class="form-control me-2"
+            [(ngModel)]="idiomes"
+            formControlName="idiomaControl"
+            id="labelIdiomes"
+            (change)="totalWebOpcions()"
+            (change)="onPropagar()"
+          />
+        </div>
+        <div class="col-auto">
+          <button class="btn text-white fw-bold" (click)="restar('idiomes')">
+            -
+          </button>
+        </div>
         <span
-          class="form-text text-danger"
+          class="form-text text-danger text-center"
           *ngIf="campEsValid('idiomaControl')"
         >
-          Mínimo 1 página
+          Mínim 1 idioma
         </span>
       </div>
     </div>
