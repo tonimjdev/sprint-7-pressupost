@@ -10,13 +10,15 @@ import { PanellComponent } from './pressupost/panell/panell.component';
 import { PressupostService } from './pressupost/services/pressupost.service';
 import { BenvingudaComponent } from './pressupost/benvinguda/benvinguda.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ModalComponent } from './pressupost/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PanellComponent,
-    BenvingudaComponent
+    BenvingudaComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

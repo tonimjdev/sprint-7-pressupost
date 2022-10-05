@@ -2,59 +2,59 @@
   <div class="col">
     <h1>Pressupost Web</h1>
     <h2 class="fs-5 fw-light">Toni Machado - Sprint 7 - ANGULAR</h2>
-    <hr>
+    <hr />
   </div>
 
   <div class="row ps-4 py-1">
-  <h1 class="fs-5 pb-3">¿Què vols fer?</h1>
+    <h1 class="fs-5 pb-3">¿Què vols fer?</h1>
 
+    <form class="form-check">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        (change)="checkWeb($event)"
+        value="web"
+      />
+      <label class="form-check-label"> Una pàgina web (500€)</label> <br />
 
-  <form class="form-check">
-    <input
-      type="checkbox"
-      class="form-check-input"
-      (change)="checkWeb($event)"
-      value="web"
-    />
-    <label class="form-check-label"> Una pàgina web (500€)</label> <br />
+      <!-- Component Panell condicionat a activar check Pàgina Web -->
+      <ng-template [ngIf]="webActive">
+        <app-panell (propagar)="onTotalWebServ($event)"></app-panell>
+      </ng-template>
 
-    <!-- Component Panell condicionat a activar check Pàgina Web -->
-    <ng-template [ngIf]="webActive">
-      <app-panell (propagar)="onTotalWebServ($event)"></app-panell>
-    </ng-template>
+      <input
+        type="checkbox"
+        class="form-check-input"
+        (change)="checkSeo($event)"
+        value="seo"
+      />
+      <label class="form-check-label">
+        Una consultoria <em>SEO</em> (300€)</label
+      >
+      <br />
+      <input
+        type="checkbox"
+        class="form-check-input"
+        (change)="checkAds($event)"
+        value="pub"
+      />
+      <label class="form-check-label">
+        Una campanya de <em>Google Ads</em> (200€)</label
+      >
+      <br />
+    </form>
 
-    <input
-      type="checkbox"
-      class="form-check-input"
-      (change)="checkSeo($event)"
-      value="seo"
-    />
-    <label class="form-check-label"> Una consultoria <em>SEO</em> (300€)</label>
     <br />
-    <input
-      type="checkbox"
-      class="form-check-input"
-      (change)="checkAds($event)"
-      value="pub"
-    />
-    <label class="form-check-label">
-      Una campanya de <em>Google Ads</em> (200€)</label
-    >
-    <br />
-  </form>
-
-  <br />
-  <p class="fw-bold pt-4 pb-1 fs-5">Preu: {{ totalPresu }} €</p>
-  <hr>
-  <div class="col">
-  <button class="btn btn-primary px-4 mt-2"
-  routerLink=""
-  routerLinkActive="router-link-active">
-  Inici</button>
+    <p class="fw-bold pt-4 pb-1 fs-5">Preu: {{ totalPresu }} €</p>
+    <hr />
+    <div class="col">
+      <button
+        class="btn btn-primary px-4 mt-2"
+        routerLink=""
+        routerLinkActive="router-link-active"
+      >
+        Inici
+      </button>
+    </div>
+  </div>
 </div>
-</div>
-
-
-
-      </div>
-

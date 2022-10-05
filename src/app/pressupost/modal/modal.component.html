@@ -1,0 +1,22 @@
+<!-- Bootstrap Icon -->
+<span
+  type="button"
+  (click)="modal.open(infoModal)"
+  class="btn bi bi-info-circle"
+>
+</span>
+
+<!-- Modal -->
+<ng-template #infoModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Informació</h4>
+  </div>
+  <div class="modal-body">
+    Has d'escollir el número de pàgines i d'idiomes per la teva web (mínim 1).
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning" (click)="modal.close()">
+      D'acord
+    </button>
+  </div>
+</ng-template>

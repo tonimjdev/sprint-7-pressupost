@@ -4,7 +4,6 @@
       <div class="col-auto">
         <label for="labelPag" class="col-form-label">Número de pàgines: </label>
       </div>
-
       <div class="col-auto">
         <button class="btn text-white fw-bold me-2" (click)="sumar('pagines')">
           +
@@ -25,6 +24,7 @@
         <button class="btn text-white fw-bold" (click)="restar('pagines')">
           -
         </button>
+        <app-modal></app-modal>
       </div>
       <span
         class="form-text text-danger text-center"
@@ -63,6 +63,7 @@
           <button class="btn text-white fw-bold" (click)="restar('idiomes')">
             -
           </button>
+          <app-modal></app-modal>
         </div>
         <span
           class="form-text text-danger text-center"

@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { BenvingudaComponent } from './pressupost/benvinguda/benvinguda.component';
 import { HomeComponent } from './pressupost/home/home.component';
 
+import { ModalComponent } from './pressupost/modal/modal.component';
+
 const routes: Routes = [
   {
     path: 'benvinguda',
@@ -13,6 +15,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'modal',
+    component: ModalComponent
   },
   {
     path: '**',

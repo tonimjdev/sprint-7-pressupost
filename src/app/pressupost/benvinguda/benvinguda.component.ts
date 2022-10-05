@@ -2,14 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-benvinguda',
-  templateUrl: './benvinguda.component.html',
-  styleUrls: ['./benvinguda.component.css']
+  templateUrl: './benvinguda.component.html'
 })
 export class BenvingudaComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
