@@ -25,7 +25,7 @@ export class PanellComponent {
   idiomes: number = 0;
   totalOpcionsWeb: number = 0;
 
-  // Injectem el servei pressupost al constructor
+  // Injectem el servei pressupost & FormBuilder al constructor
   constructor(
     public pressupostService: PressupostService,
     private fb: FormBuilder

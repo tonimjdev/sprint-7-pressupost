@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 
 import { PressupostService } from '../services/pressupost.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
+
   totalServicios: number = 0;
   totalWebServ: number = 0;
   totalPresu: number = 0;
@@ -16,8 +18,22 @@ export class HomeComponent {
   seoB: boolean = false;
   adsB: boolean = false;
 
-  // Injectem el servei pressupost
-  constructor(public pressupostService: PressupostService) {}
+  // Formulari reactiu (validators per check serveis & nom/presu)
+  presuClientFormulari: FormGroup = this.fb.group({
+    presuForm: ['', [Validators.required, Validators.minLength(3)]],
+    nomForm: ['', [Validators.required, Validators.minLength(3)]]
+  });
+
+
+  // Missatge error a l'HTML si no passa validació
+  campEsValid(campo: string) {
+    return this.presuClientFormulari.controls[campo].errors;
+  }
+
+  // Injectem el servei pressupost & FormBuilder al constructor
+  constructor(
+    public pressupostService: PressupostService,
+    private fb: FormBuilder) {}
 
   totalFunc() {
     this.totalServicios = this.pressupostService.calcTotalServeis(

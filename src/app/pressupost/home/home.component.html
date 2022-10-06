@@ -1,12 +1,12 @@
 <div class="row p-5">
-  <div class="col">
-    <h1>Pressupost Web</h1>
-    <h2 class="fs-5 fw-light">Toni Machado - Sprint 7 - ANGULAR</h2>
-    <hr />
-  </div>
+  <div class="col me-5">
+    <div class="col">
+      <h1>Pressupost Web</h1>
+      <h2 class="fs-5 fw-light">Toni Machado - Sprint 7 - ANGULAR</h2>
+      <hr />
+    </div>
 
-  <div class="row ps-4 py-1">
-    <h1 class="fs-5 pb-3">¿Què vols fer?</h1>
+    <h3 class="fs-5 pb-3">¿Què vols fer?</h3>
 
     <form class="form-check">
       <input
@@ -41,20 +41,67 @@
       <label class="form-check-label">
         Una campanya de <em>Google Ads</em> (200€)</label
       >
+      <span
+      class="form-text text-danger mt-2 "
+    >
+      *Selecciona al menys 1 servei
+    </span>
       <br />
+
+      <br />
+      <p class="fw-bold pb-1 fs-5">Preu: {{ totalPresu }} €</p>
+      
+    </form>
+    <hr />
+
+    <!-- Formulari Pressupost / Nom Client -->
+
+    <form class="mt-4 form-group" [formGroup]="presuClientFormulari">
+      <div class="mb-4 row">
+        <label class="form-label col-4"> Pressupost: </label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" formControlName="presuForm"/>
+        </div>
+        <span
+        class="form-text text-danger "
+        *ngIf="campEsValid('presuForm')"
+      >
+        *Camp obligatori - Mínim 3 caràcters
+      </span>
+      </div>
+      <div class="mb-4 row">
+        <label class="form-label col-4"> Nom Client: </label>
+        <div class="col-sm-8">
+          <input class="form-control" type="text" formControlName="nomForm" />
+        </div>
+        <span
+        class="form-text text-danger "
+        *ngIf="campEsValid('nomForm')"
+      >
+        *Camp obligatori - Mínim 3 caràcters
+      </span>
+      </div>
     </form>
 
-    <br />
-    <p class="fw-bold pt-4 pb-1 fs-5">Preu: {{ totalPresu }} €</p>
     <hr />
-    <div class="col">
-      <button
-        class="btn btn-primary px-4 mt-2"
-        routerLink=""
-        routerLinkActive="router-link-active"
-      >
-        Inici
-      </button>
-    </div>
+
+    <!-- Botons Guardar Presu / Inici -->
+    <div class="row mt-2 mx-3 d-flex justify-content-between">
+    <button
+      class="btn btn-primary px-4 me-5 col-auto"
+    >
+      Guardar
+    </button>
+    <button
+      class="btn btn-outline-secondary px-4 col-auto"
+      routerLink=""
+      routerLinkActive="router-link-active"
+    >
+      Inici
+    </button>
+  </div>
+</div>
+  <div class="col">
+    <app-pressupost-list></app-pressupost-list>
   </div>
 </div>

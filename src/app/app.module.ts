@@ -11,6 +11,7 @@ import { PressupostService } from './pressupost/services/pressupost.service';
 import { BenvingudaComponent } from './pressupost/benvinguda/benvinguda.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ModalComponent } from './pressupost/modal/modal.component';
+import { PressupostListComponent } from './pressupost/pressupost-list/pressupost-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ModalComponent } from './pressupost/modal/modal.component';
     HomeComponent,
     PanellComponent,
     BenvingudaComponent,
-    ModalComponent
+    ModalComponent,
+    PressupostListComponent
   ],
   imports: [
     BrowserModule,
