@@ -1,8 +1,7 @@
 .panellClass {
   width: 400px;
   padding: 1.5em 1em 1.2em 2em;
-  margin: 1em;
-
+  margin: 1em 0;
   border-radius: 20px;
   background-color: rgb(246, 243, 240);
 }

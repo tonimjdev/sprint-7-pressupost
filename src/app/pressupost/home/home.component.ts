@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { PressupostService } from '../services/pressupost.service';
 // Forms
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -50,13 +51,10 @@ export class HomeComponent {
     else if (this.seoB) server = 'Seo'
     else server = 'Ads' ;
     
-    // Enviem informació al servei Pressupost
-
-    this.pressupostService.arrayPresus(this.presuClientFormulari.value.presuForm, this.presuClientFormulari.value.nomForm, server, this.totalPresu, data);
-    console.log('Valdiators: ', this.presuClientFormulari);
+    // Enviem informació al servei Pressupost un cop passa les validacions
+    if(this.presuClientFormulari.status!=="VALID" || (this.webB && this.totalWebServ<60) || (!this.webB && !this.seoB && !this.adsB)) alert ('Faltan datos')
+    else this.pressupostService.arrayPresus(this.presuClientFormulari.value.presuForm, this.presuClientFormulari.value.nomForm, server, this.totalPresu, data);
   }
-
-
 
   checkWeb(valor: any): void {
     // Si quitamos check el total Servicios Web ha de ser 0
@@ -80,9 +78,6 @@ export class HomeComponent {
   }
   onTotalWebServ(valor: any): void {
     this.totalWebServ = valor;
-    console.log('this.totalWebServ: ', this.totalWebServ);
-    if (this.totalWebServ<60) this.totalPresu=0
-    else 
     this.totalPresu = this.totalServicios + this.totalWebServ;
   }
   totalFunc() {

@@ -2,3 +2,35 @@
 <h2 class="fs-5 fw-light mt-5 mb-4">Llistat Pressupostos</h2>
     <hr />
 
+    <div class="row bg-light shadow-sm p-4" id="optionsBox">
+        <div class="col">
+            <table class="table table-striped"  >
+                <thead >
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Nom Pressupost</th>
+                    <th scope="col">Client</th>
+                    <th scope="col">Serveis</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Data</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let llista of pressupostosLlistat; let i=index">
+                        <th scope="row">{{llista.id}}</th>
+                        <td>{{llista.presuNom}}</td>
+                        <td>{{llista.client}}</td>
+                        <td>{{llista.servei}}</td>
+                        <td>{{llista.total}} €</td>
+                        <td>{{llista.data}}</td>
+                        <td><span type="button" 
+                            title="Esborrar Pressupost" 
+                            class="text-danger bi bi-trash2-fill" 
+                            (click)="esborrarPresu(i)"></span></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

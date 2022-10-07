@@ -11,8 +11,8 @@ import { PressupostService } from '../services/pressupost.service';
 export class PanellComponent {
   // Formulari reactiu validators (minim 1 pag 1 idioma)
   panellFormulari: FormGroup = this.fb.group({
-    pagControl: [1, [Validators.required, Validators.min(1)]],
-    idiomaControl: [1, [Validators.required, Validators.min(1)]],
+    pagControl: [0, [Validators.required, Validators.min(1)]],
+    idiomaControl: [0, [Validators.required, Validators.min(1)]],
   });
   
   // Missatge error a l'HTML si no passa validació
@@ -21,8 +21,8 @@ export class PanellComponent {
   }
 
   // Variables
-  pagines: number = 1;
-  idiomes: number = 1;
+  pagines: number = 0;
+  idiomes: number = 0;
   totalOpcionsWeb: number = 0;
   checkValid: boolean =  false;
 
@@ -40,7 +40,8 @@ export class PanellComponent {
         this.idiomes
       );
       this.checkValid=true;
-    }
+      
+    }console.log('Checkvalid', this.checkValid);
   }
 
   // Mètode que retorna el Total Opcions Web utilitzant el servei
