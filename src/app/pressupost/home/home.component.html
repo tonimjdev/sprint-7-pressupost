@@ -20,7 +20,6 @@
       <!-- Component Panell condicionat a activar check Pàgina Web -->
       <ng-template [ngIf]="webActive">
         <app-panell (propagar)="onTotalWebServ($event)"></app-panell>
-
       </ng-template>
 
       <input
@@ -42,17 +41,14 @@
       <label class="form-check-label">
         Una campanya de <em>Google Ads</em> (200€)</label
       >
-      <br>
-      <span *ngIf="totalPresu<1"
-      class="form-text text-danger mt-2"
-    >
-      *Selecciona al menys 1 servei
-    </span>
+      <br />
+      <span *ngIf="totalPresu < 1" class="form-text text-danger mt-2">
+        *Selecciona al menys 1 servei
+      </span>
       <br />
 
       <br />
       <p class="fw-bold pb-1 fs-5">Preu: {{ totalPresu }} €</p>
-      
     </form>
     <hr />
 
@@ -62,26 +58,20 @@
       <div class="mb-4 row">
         <label class="form-label col-4"> Pressupost: </label>
         <div class="col-sm-8">
-          <input class="form-control" type="text" formControlName="presuForm"/>
+          <input class="form-control" type="text" formControlName="presuForm" />
         </div>
-        <span
-        class="form-text text-danger "
-        *ngIf="campEsValid('presuForm')"
-      >
-        *Camp obligatori - Mínim 3 caràcters
-      </span>
+        <span class="form-text text-danger" *ngIf="campEsValid('presuForm')">
+          *Camp obligatori - Mínim 3 caràcters
+        </span>
       </div>
       <div class="mb-4 row">
         <label class="form-label col-4"> Nom Client: </label>
         <div class="col-sm-8">
           <input class="form-control" type="text" formControlName="nomForm" />
         </div>
-        <span
-        class="form-text text-danger "
-        *ngIf="campEsValid('nomForm')"
-      >
-        *Camp obligatori - Mínim 3 caràcters
-      </span>
+        <span class="form-text text-danger" *ngIf="campEsValid('nomForm')">
+          *Camp obligatori - Mínim 3 caràcters
+        </span>
       </div>
     </form>
 
@@ -89,21 +79,21 @@
 
     <!-- Botons Guardar Presu / Inici -->
     <div class="row mt-2 mx-3 d-flex justify-content-between">
-    <button
-      class="btn btn-primary px-4 me-5 col-auto"
-      (click)="submitPresu()"
-    >
-      Guardar
-    </button>
-    <button
-      class="btn btn-outline-secondary px-4 col-auto"
-      routerLink=""
-      routerLinkActive="router-link-active"
-    >
-      Inici
-    </button>
+      <button
+        class="btn btn-primary px-4 me-5 col-auto"
+        (click)="submitPresu()"
+      >
+        Guardar
+      </button>
+      <button
+        class="btn btn-outline-secondary px-4 col-auto"
+        routerLink=""
+        routerLinkActive="router-link-active"
+      >
+        Inici
+      </button>
+    </div>
   </div>
-</div>
   <div class="col-xl-7">
     <app-pressupost-list></app-pressupost-list>
   </div>

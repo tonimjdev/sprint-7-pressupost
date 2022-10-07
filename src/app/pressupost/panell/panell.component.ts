@@ -14,7 +14,7 @@ export class PanellComponent {
     pagControl: [0, [Validators.required, Validators.min(1)]],
     idiomaControl: [0, [Validators.required, Validators.min(1)]],
   });
-  
+
   // Missatge error a l'HTML si no passa validació
   campEsValid(campo: string) {
     return this.panellFormulari.controls[campo].errors;
@@ -24,7 +24,7 @@ export class PanellComponent {
   pagines: number = 0;
   idiomes: number = 0;
   totalOpcionsWeb: number = 0;
-  checkValid: boolean =  false;
+  checkValid: boolean = false;
 
   // Injectem el servei pressupost & FormBuilder al constructor
   constructor(
@@ -33,15 +33,17 @@ export class PanellComponent {
   ) {}
 
   cridarServeiOpcionsWeb() {
-    if (this.pagines < 1 || this.idiomes < 1) {this.totalOpcionsWeb = 0; this.checkValid=false}
-    else {
+    if (this.pagines < 1 || this.idiomes < 1) {
+      this.totalOpcionsWeb = 0;
+      this.checkValid = false;
+    } else {
       this.totalOpcionsWeb = this.pressupostService.calcOpcionsWeb(
         this.pagines,
         this.idiomes
       );
-      this.checkValid=true;
-      
-    }console.log('Checkvalid', this.checkValid);
+      this.checkValid = true;
+    }
+    console.log('Checkvalid', this.checkValid);
   }
 
   // Mètode que retorna el Total Opcions Web utilitzant el servei

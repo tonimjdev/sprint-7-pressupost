@@ -1,36 +1,66 @@
+<div class="row justify-content-between mt-5">
+  <h2 class="col-auto fs-5 fw-light">Llistat Pressupostos</h2>
 
-<h2 class="fs-5 fw-light mt-5 mb-4">Llistat Pressupostos</h2>
-    <hr />
-
-    <div class="row bg-light shadow-sm p-4" id="optionsBox">
-        <div class="col">
-            <table class="table table-striped"  >
-                <thead >
-                  <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">Nom Pressupost</th>
-                    <th scope="col">Client</th>
-                    <th scope="col">Serveis</th>
-                    <th scope="col">Total</th>
-                    <th scope="col">Data</th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let llista of pressupostosLlistat; let i=index">
-                        <th scope="row">{{llista.id}}</th>
-                        <td>{{llista.presuNom}}</td>
-                        <td>{{llista.client}}</td>
-                        <td>{{llista.servei}}</td>
-                        <td>{{llista.total}} €</td>
-                        <td>{{llista.data}}</td>
-                        <td><span type="button" 
-                            title="Esborrar Pressupost" 
-                            class="text-danger bi bi-trash2-fill" 
-                            (click)="esborrarPresu(i)"></span></td>
-                        
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+  <div class="col-auto d-flex gap-4">
+    <button
+      (click)="ordreAZ()"
+      title="Ordenar per client"
+      type="button"
+      class="btn btn-light px-3"
+    >
+      <i class="bi bi-filter"></i>
+    </button>
+    <button
+      (click)="ordreData()"
+      title="Ordenar per data"
+      type="button"
+      class="btn btn-light px-3"
+    >
+      <i class="bi bi-calendar2-date"></i>
+    </button>
+    <button
+      (click)="resetOrdre()"
+      title="Reinicialitzar ordre"
+      type="button"
+      class="text-danger btn btn-light px-3"
+    >
+      <i class="bi bi-arrow-clockwise"></i>
+    </button>
+  </div>
+</div>
+<hr />
+<div class="row shadow-sm p-4" id="optionsBox">
+  <div class="col">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Nom Pressupost</th>
+          <th scope="col">Client</th>
+          <th scope="col">Serveis</th>
+          <th scope="col">Total</th>
+          <th scope="col">Data</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let llista of pressupostosLlistat; let i = index">
+          <th scope="row">{{ llista.id }}</th>
+          <td>{{ llista.presuNom }}</td>
+          <td>{{ llista.client }}</td>
+          <td>{{ llista.servei }}</td>
+          <td>{{ llista.total }} €</td>
+          <td>{{ llista.data }}</td>
+          <td>
+            <span
+              type="button"
+              title="Esborrar Pressupost"
+              class="bi bi-trash2-fill text-secondary"
+              (click)="esborrarPresu(i)"
+            ></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
