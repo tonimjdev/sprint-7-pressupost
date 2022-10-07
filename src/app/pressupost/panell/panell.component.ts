@@ -14,16 +14,17 @@ export class PanellComponent {
     pagControl: [1, [Validators.required, Validators.min(1)]],
     idiomaControl: [1, [Validators.required, Validators.min(1)]],
   });
-
+  
   // Missatge error a l'HTML si no passa validació
   campEsValid(campo: string) {
     return this.panellFormulari.controls[campo].errors;
   }
 
   // Variables
-  pagines: number = 0;
-  idiomes: number = 0;
+  pagines: number = 1;
+  idiomes: number = 1;
   totalOpcionsWeb: number = 0;
+  checkValid: boolean =  false;
 
   // Injectem el servei pressupost & FormBuilder al constructor
   constructor(
@@ -32,12 +33,13 @@ export class PanellComponent {
   ) {}
 
   cridarServeiOpcionsWeb() {
-    if (this.pagines < 1 || this.idiomes < 1) this.totalOpcionsWeb = 0;
+    if (this.pagines < 1 || this.idiomes < 1) {this.totalOpcionsWeb = 0; this.checkValid=false}
     else {
       this.totalOpcionsWeb = this.pressupostService.calcOpcionsWeb(
         this.pagines,
         this.idiomes
       );
+      this.checkValid=true;
     }
   }
 
@@ -48,7 +50,7 @@ export class PanellComponent {
     this.cridarServeiOpcionsWeb();
   }
 
-  // Enviem Total Opcions Web al component pare "Home" amb @Output
+  // Enviem Total Opcions Web & Validacio del Form al component pare "Home" amb @Output
   @Output()
   propagar = new EventEmitter<number>();
   onPropagar() {

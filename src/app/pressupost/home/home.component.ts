@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
+// Servei
 import { PressupostService } from '../services/pressupost.service';
+// Forms
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -24,7 +25,6 @@ export class HomeComponent {
     nomForm: ['', [Validators.required, Validators.minLength(3)]]
   });
 
-
   // Missatge error a l'HTML si no passa validació
   campEsValid(campo: string) {
     return this.presuClientFormulari.controls[campo].errors;
@@ -35,24 +35,41 @@ export class HomeComponent {
     public pressupostService: PressupostService,
     private fb: FormBuilder) {}
 
-  totalFunc() {
-    this.totalServicios = this.pressupostService.calcTotalServeis(
-      this.webB,
-      this.seoB,
-      this.adsB
-    ); // Crida Servei
-    this.totalPresu = this.totalServicios + this.totalWebServ;
+
+
+  // Enviem submit al servei per afegir pressupost al llistat
+  submitPresu() {
+    const data = (new Date ()).toLocaleDateString(); // Data registre
+    let server = '';
+    // Condicional per enviar el servei triat
+    if (this.webB && this.seoB && this.adsB) server = 'Web - Seo - Ads'
+    else if (this.webB && this.seoB) server = 'Web - Seo'
+    else if (this.webB && this.adsB) server = 'Web - Ads'
+    else if (this.seoB && this.adsB) server = 'Seo - Ads'
+    else if (this.webB) server = 'Web'
+    else if (this.seoB) server = 'Seo'
+    else server = 'Ads' ;
+    
+    // Enviem informació al servei Pressupost
+
+    this.pressupostService.arrayPresus(this.presuClientFormulari.value.presuForm, this.presuClientFormulari.value.nomForm, server, this.totalPresu, data);
+    console.log('Valdiators: ', this.presuClientFormulari);
   }
+
+
 
   checkWeb(valor: any): void {
     // Si quitamos check el total Servicios Web ha de ser 0
-    if (valor.currentTarget.checked == false) this.totalWebServ = 0; 
+    if (valor.currentTarget.checked == false) this.totalWebServ=0
     valor.currentTarget.checked
       ? (this.webActive = true)
       : (this.webActive = false); // Visualitzar o no component "panell"
     valor.currentTarget.checked ? (this.webB = true) : (this.webB = false);
     this.totalFunc();
   }
+
+  
+
   checkSeo(valor: any): void {
     valor.currentTarget.checked ? (this.seoB = true) : (this.seoB = false);
     this.totalFunc();
@@ -63,6 +80,17 @@ export class HomeComponent {
   }
   onTotalWebServ(valor: any): void {
     this.totalWebServ = valor;
+    console.log('this.totalWebServ: ', this.totalWebServ);
+    if (this.totalWebServ<60) this.totalPresu=0
+    else 
+    this.totalPresu = this.totalServicios + this.totalWebServ;
+  }
+  totalFunc() {
+    this.totalServicios = this.pressupostService.calcTotalServeis(
+      this.webB,
+      this.seoB,
+      this.adsB
+    ); // Crida Servei
     this.totalPresu = this.totalServicios + this.totalWebServ;
   }
 }

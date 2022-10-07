@@ -8,7 +8,7 @@
 
     <h3 class="fs-5 pb-3">¿Què vols fer?</h3>
 
-    <form class="form-check">
+    <form class="form-check needs-validation">
       <input
         type="checkbox"
         class="form-check-input"
@@ -20,6 +20,7 @@
       <!-- Component Panell condicionat a activar check Pàgina Web -->
       <ng-template [ngIf]="webActive">
         <app-panell (propagar)="onTotalWebServ($event)"></app-panell>
+
       </ng-template>
 
       <input
@@ -41,8 +42,9 @@
       <label class="form-check-label">
         Una campanya de <em>Google Ads</em> (200€)</label
       >
-      <span
-      class="form-text text-danger mt-2 "
+      <br>
+      <span *ngIf="totalPresu<1"
+      class="form-text text-danger mt-2"
     >
       *Selecciona al menys 1 servei
     </span>
@@ -89,6 +91,7 @@
     <div class="row mt-2 mx-3 d-flex justify-content-between">
     <button
       class="btn btn-primary px-4 me-5 col-auto"
+      (click)="submitPresu()"
     >
       Guardar
     </button>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PressupostService } from '../services/pressupost.service';
 
 @Component({
   selector: 'app-pressupost-list',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PressupostListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public pressupostService: PressupostService
+  ) { }
+
+  
 
   ngOnInit(): void {
   }
