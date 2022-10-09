@@ -11,7 +11,7 @@ export class PipeRecercaPipe implements PipeTransform {
 
     const resultPresus = [];
     for(const llista of value) {
-      if (llista.presuNom.indexOf(arg) > -1) {
+      if (llista.presuNom.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
         resultPresus.push(llista);
       };
     };

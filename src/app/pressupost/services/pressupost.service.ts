@@ -4,7 +4,7 @@ import { Pressupost } from '../interface/pressupost.interface';
 
 @Injectable()
 export class PressupostService {
-  // Declarem variables y array
+  // Declarem variables
   totalOpcionsWeb: number = 0;
   totalServeisWeb: number = 0;
 

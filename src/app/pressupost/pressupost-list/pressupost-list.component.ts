@@ -9,6 +9,7 @@ import { PressupostService } from '../services/pressupost.service';
 export class PressupostListComponent implements OnInit {
   constructor(public pressupostService: PressupostService) {}
   
+  // Declarem per Pipe Buscar
   filtrarPresu = '';
   
   ngOnInit(): void {

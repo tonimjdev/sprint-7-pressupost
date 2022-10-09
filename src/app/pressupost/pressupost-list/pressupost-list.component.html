@@ -53,7 +53,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let llista of pressupostosLlistat | pipebuscar:filtrarPresu; let i = index">
+        <tr *ngFor="let llista of pressupostosLlistat | pipebuscar:filtrarPresu">
           <th scope="row">{{ llista.id }}</th>
           <td>{{ llista.presuNom }}</td>
           <td>{{ llista.client }}</td>
