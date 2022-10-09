@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { PressupostService } from '../services/pressupost.service';
 
+
 @Component({
   selector: 'app-pressupost-list',
   templateUrl: './pressupost-list.component.html',
 })
 export class PressupostListComponent implements OnInit {
   constructor(public pressupostService: PressupostService) {}
-
+  
+  filtrarPresu = '';
+  
   ngOnInit(): void {
     this.pressupostService.getFormLocalStorage('llistat');
   }
@@ -16,7 +19,9 @@ export class PressupostListComponent implements OnInit {
     return this.pressupostService.llistatPresusArray;
   }
 
-  esborrarPresu(index: number) {
+  esborrarPresu(id: number) {
+    console.log('id a esborrar ', id);
+    let index = this.pressupostosLlistat.map(x => x.id).indexOf(id)
     this.pressupostosLlistat.splice(index, 1);
     console.log(this.pressupostosLlistat);
   }
@@ -31,4 +36,6 @@ export class PressupostListComponent implements OnInit {
   resetOrdre() {
     this.pressupostService.resetOrdre();
   }
+
+  
 }

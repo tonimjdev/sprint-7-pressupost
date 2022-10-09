@@ -6,12 +6,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pressupost/home/home.component';
 import { PanellComponent } from './pressupost/panell/panell.component';
+import { BenvingudaComponent } from './pressupost/benvinguda/benvinguda.component';
+import { PressupostListComponent } from './pressupost/pressupost-list/pressupost-list.component';
+import { PipeRecercaPipe } from './pressupost/pipes/pipe-recerca.pipe';
+import { ModalComponent } from './pressupost/modal/modal.component';
 
 import { PressupostService } from './pressupost/services/pressupost.service';
-import { BenvingudaComponent } from './pressupost/benvinguda/benvinguda.component';
+
 import { AppRoutingModule } from './app-routing.module';
-import { ModalComponent } from './pressupost/modal/modal.component';
-import { PressupostListComponent } from './pressupost/pressupost-list/pressupost-list.component';
+
+// Importacions format local
+import localeES from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData( localeES );
+
 
 @NgModule({
   declarations: [
@@ -20,7 +28,8 @@ import { PressupostListComponent } from './pressupost/pressupost-list/pressupost
     PanellComponent,
     BenvingudaComponent,
     ModalComponent,
-    PressupostListComponent
+    PressupostListComponent,
+    PipeRecercaPipe
   ],
   imports: [
     BrowserModule,

@@ -4,5 +4,5 @@ export interface Pressupost {
   client: string;
   servei: string;
   total: number;
-  data: Date;
+  data: any;
 }
