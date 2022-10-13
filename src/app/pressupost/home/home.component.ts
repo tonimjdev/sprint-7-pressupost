@@ -38,7 +38,7 @@ export class HomeComponent {
 
   // Enviem submit al servei per afegir pressupost al llistat
   submitPresu() {
-    const data = new Date().toLocaleDateString(); // Data registre
+    //const data = new Date().toLocaleDateString(); // Data registre
     let server = '';
     // Condicional per enviar el servei triat
     if (this.webB && this.seoB && this.adsB) server = 'Web - Seo - Ads';
@@ -62,7 +62,7 @@ export class HomeComponent {
         this.presuClientFormulari.value.nomForm,
         server,
         this.totalPresu,
-        data
+        /*data*/
       );
   }
 

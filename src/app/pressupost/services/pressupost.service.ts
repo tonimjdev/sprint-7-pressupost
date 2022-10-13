@@ -52,7 +52,9 @@ export class PressupostService {
   }
 
   // Afegir pressupost al llistat de pressupostos
-  arrayPresus(presuNom: any, client: any, servei: any, total: any, data: any) {
+  arrayPresus(presuNom: any, client: any, servei: any, total: any) {
+    // Data registre
+    const data = new Date();
     // Agagfem l'id amb el comptador
     let id = this.contadorID + 1;
     this.contadorID += 1;
@@ -105,3 +107,5 @@ export class PressupostService {
     });
   }
 }
+
+
