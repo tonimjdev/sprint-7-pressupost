@@ -52,9 +52,7 @@ export class PressupostService {
   }
 
   // Afegir pressupost al llistat de pressupostos
-  arrayPresus(presuNom: any, client: any, servei: any, total: any) {
-    // Data registre
-    const data = new Date();
+  arrayPresus(presuNom: any, client: any, servei: any, total: any, data:any) {
     // Agagfem l'id amb el comptador
     let id = this.contadorID + 1;
     this.contadorID += 1;
@@ -76,12 +74,12 @@ export class PressupostService {
     JSON.parse(localStorage.getItem(key)!);
   }
 
-  // Ordre A-Z (Client)
+  // Ordre A-Z (Pressupost)
   ordreAZ() {
     this.llistatPresusArray.sort((a, b) => {
-      if (a.client < b.client) {
+      if (a.presuNom.toLowerCase() < b.presuNom.toLowerCase()) {
         return -1;
-      } else if (a.client > b.client) {
+      } else if (a.presuNom.toLocaleLowerCase() > b.presuNom.toLowerCase()) {
         return 1;
       } else return 0;
     });
