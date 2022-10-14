@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { PressupostService } from '../services/pressupost.service';
@@ -14,6 +14,9 @@ export class PanellComponent {
     pagControl: [0, [Validators.required, Validators.min(1)]],
     idiomaControl: [0, [Validators.required, Validators.min(1)]],
   });
+
+  // Importem del component pare el valor "faltenDades" per mostrar o no missatge d'error al panell
+  @Input('checkSub') faltenDades!: boolean;
 
   // Missatge error a l'HTML si no passa validació
   campEsValid(campo: string) {

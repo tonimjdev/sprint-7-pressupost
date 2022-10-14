@@ -12,28 +12,10 @@ export class PressupostService {
   costeSeo: number = 300;
   costeAds: number = 200;
 
-  // Declarem array amb 2 presupostos d'exemple
-  llistatPresusArray: Pressupost[] = [
-   {
-      id: 1,
-      presuNom: 'E-Commerce',
-      client: 'Luis Lopez',
-      servei: 'Seo',
-      total: 300,
-      data: new Date(2021, 4, 6)
-    },
-    {
-      id: 2,
-      presuNom: 'Blog',
-      client: 'Carmen Martinez',
-      servei: 'Web',
-      total: 1060,
-      data: new Date(2019, 4, 4)
-    },
+  contadorID: number = 0;
 
-  ];
-  // Fem un comptador ID per no repetir ID en cas que s'esborri un presu
-  contadorID: number = 2; // Cal canviar el valor si es modifica el numero d'objectes inicials a l'array
+  // Declarem array amb 2 presupostos d'exemple
+  llistatPresusArray: Pressupost[] = [];
 
   // Mètode que retorna total opcions web
   calcOpcionsWeb(pages: number, languages: number): number {
@@ -52,7 +34,7 @@ export class PressupostService {
   }
 
   // Afegir pressupost al llistat de pressupostos
-  arrayPresus(presuNom: any, client: any, servei: any, total: any, data:any) {
+  arrayPresus(presuNom: any, client: any, servei: any, total: any, data: any) {
     // Agagfem l'id amb el comptador
     let id = this.contadorID + 1;
     this.contadorID += 1;
@@ -105,5 +87,3 @@ export class PressupostService {
     });
   }
 }
-
-

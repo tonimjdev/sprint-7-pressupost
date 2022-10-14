@@ -19,7 +19,10 @@
 
       <!-- Component Panell condicionat a activar check Pàgina Web -->
       <ng-template [ngIf]="webActive">
-        <app-panell (propagar)="onTotalWebServ($event)"></app-panell>
+        <app-panell
+          (propagar)="onTotalWebServ($event)"
+          [checkSub]="faltenDades"
+        ></app-panell>
       </ng-template>
 
       <input
@@ -42,13 +45,18 @@
         Una campanya de <em>Google Ads</em> (200€)</label
       >
       <br />
-      <span *ngIf="totalPresu < 1" class="form-text text-danger mt-2">
+      <span
+        *ngIf="totalPresu < 1 && faltenDades"
+        class="form-text text-danger mt-2"
+      >
         *Selecciona al menys 1 servei
       </span>
       <br />
 
       <br />
-      <p class="fw-bold pb-1 fs-5">Preu: {{ totalPresu | number:'1.0-2':'es' }} €</p>
+      <p class="fw-bold pb-1 fs-5">
+        Preu: {{ totalPresu | number: "1.0-2":"es" }} €
+      </p>
     </form>
     <hr />
 
@@ -60,7 +68,10 @@
         <div class="col-sm-8">
           <input class="form-control" type="text" formControlName="presuForm" />
         </div>
-        <span class="form-text text-danger" *ngIf="campEsValid('presuForm')">
+        <span
+          class="form-text text-danger"
+          *ngIf="campEsValid('presuForm') && faltenDades"
+        >
           *Camp obligatori - Mínim 3 caràcters
         </span>
       </div>
@@ -69,7 +80,10 @@
         <div class="col-sm-8">
           <input class="form-control" type="text" formControlName="nomForm" />
         </div>
-        <span class="form-text text-danger" *ngIf="campEsValid('nomForm')">
+        <span
+          class="form-text text-danger"
+          *ngIf="campEsValid('nomForm') && faltenDades"
+        >
           *Camp obligatori - Mínim 3 caràcters
         </span>
       </div>

@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { PressupostService } from '../services/pressupost.service';
 // Forms
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +17,8 @@ export class HomeComponent {
   webB: boolean = false;
   seoB: boolean = false;
   adsB: boolean = false;
+
+  faltenDades: boolean = false;
 
   // Formulari reactiu (validators per check serveis & nom/presu)
   presuClientFormulari: FormGroup = this.fb.group({
@@ -38,6 +39,7 @@ export class HomeComponent {
 
   // Enviem submit al servei per afegir pressupost al llistat
   submitPresu() {
+    this.faltenDades = false;
     //const data = new Date().toLocaleDateString(); // Data registre
     const data = new Date(); // Data registre
     let server = '';
@@ -55,9 +57,10 @@ export class HomeComponent {
       this.presuClientFormulari.status !== 'VALID' ||
       (this.webB && this.totalWebServ < 60) ||
       (!this.webB && !this.seoB && !this.adsB)
-    )
+    ) {
+      this.faltenDades = true;
       alert('Faltan datos');
-    else
+    } else
       this.pressupostService.arrayPresus(
         this.presuClientFormulari.value.presuForm,
         this.presuClientFormulari.value.nomForm,
@@ -68,7 +71,7 @@ export class HomeComponent {
   }
 
   checkWeb(valor: any): void {
-    // Si quitamos check el total Servicios Web ha de ser 0
+    // Si treiem check el total Serveis Web ha de ser 0
     if (valor.currentTarget.checked == false) this.totalWebServ = 0;
     valor.currentTarget.checked
       ? (this.webActive = true)

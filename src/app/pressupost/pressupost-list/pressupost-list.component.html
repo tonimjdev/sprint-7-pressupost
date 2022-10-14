@@ -3,12 +3,18 @@
   <form class="col-auto form-group">
     <div class="row">
       <div class="col-auto">
-      <input class="form-control" type="text" name="filtrarPresu" placeholder="Buscar pressupost..." [(ngModel)]="filtrarPresu"/>
+        <input
+          class="form-control"
+          type="text"
+          name="filtrarPresu"
+          placeholder="Buscar pressupost..."
+          [(ngModel)]="filtrarPresu"
+        />
+      </div>
+      <div class="col-auto">
+        <label class="label-form mt-2"><i class="bi bi-search"></i></label>
+      </div>
     </div>
-    <div class="col-auto">
-    <label class="label-form mt-2"><i class="bi bi-search"></i></label>
-  </div>
-  </div>
   </form>
   <div class="col-auto d-flex gap-lg-3 gap-md-2 gap-sm-1">
     <button
@@ -53,13 +59,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let llista of pressupostosLlistat | pipebuscar:filtrarPresu">
+        <tr
+          *ngFor="let llista of pressupostosLlistat | pipebuscar: filtrarPresu"
+        >
           <th scope="row">{{ llista.id }}</th>
           <td>{{ llista.presuNom }}</td>
           <td>{{ llista.client }}</td>
           <td>{{ llista.servei }}</td>
-          <td>{{ llista.total | number:'1.0-2':'es' }} €</td>
-          <td>{{ llista.data | date:'dd/MM/yyyy':'es' }}</td>
+          <td>{{ llista.total | number: "1.0-2":"es" }} €</td>
+          <td>{{ llista.data | date: "dd/MM/yyyy":"es" }}</td>
           <td>
             <span
               type="button"
