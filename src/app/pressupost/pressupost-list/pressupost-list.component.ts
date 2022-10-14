@@ -13,7 +13,7 @@ export class PressupostListComponent implements OnInit {
   filtrarPresu = '';
   
   ngOnInit(): void {
-    this.pressupostService.getFormLocalStorage('llistat');
+    this.pressupostService.getFromLocalStorage('llistat');
   }
 
   get pressupostosLlistat() {
@@ -24,6 +24,8 @@ export class PressupostListComponent implements OnInit {
     console.log('id a esborrar ', id);
     let index = this.pressupostosLlistat.map(x => x.id).indexOf(id)
     this.pressupostosLlistat.splice(index, 1);
+    // Gravem nou array al LocalStorage
+    this.pressupostService.saveToLocalStorage(this.pressupostosLlistat);
     console.log(this.pressupostosLlistat);
   }
 

@@ -69,9 +69,9 @@ export class PressupostService {
   }
 
   // Si hi han dades, fer GET de les dades del localStorage
-  getFormLocalStorage(key: string) {
-    if (!localStorage.getItem(key)) return;
-    JSON.parse(localStorage.getItem(key)!);
+  getFromLocalStorage(key: string) {
+    //if (!localStorage.getItem(key)) return;
+    this.llistatPresusArray = JSON.parse(localStorage.getItem(key)!);
   }
 
   // Ordre A-Z (Pressupost)
